@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/"> 
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+</head>
+<body>
+  <%- include("header"); -%>
+
+  <div class="container">
+        <div class="wrapper rounded">
+      
+          <div class="table-responsive mt-3">
+             <table class="table table-light table-borderless">
+                <thead>
+                    <h4>Collection: <%= id %></h4>
+                   <tr>
+                      <th scope="col">Contract id</th>
+                      <th scope="col">Name</th>
+                   </tr>
+                </thead>
+                <tbody>
+                  <% collection.forEach(contract => { %>
+                   <tr>
+                      <td scope="row"> <span class="fa fa-cutlery mr-1"></span><a href="/view/contract/<%= contract["id"] %>" %> `><%= contract["id"] %></a></td>
+                      <td class="text-muted"><%= contract["name"] %></td>
+                   </tr>
+                   <% }) %>
+                </tbody>
+             </table>
+          </div>
+       </div>
+</div>
+  
+</body>
+</html>

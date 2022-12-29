@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/"> 
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+</head>
+<body>
+  <%- include("header"); -%>
+
+  <div class="container">
+  <% if(true){ %>
+      <% for(var i=0; i < nft.length; i++) {%>
+        <div class="wrapper rounded">
+      
+          <div class="table-responsive mt-3">
+             <table class="table table-light table-borderless">
+                <thead>
+                  <% if(nft[i][0,0] != "" ){ %>
+                     <h4 >Collection : <a href="/view/collection/<%= nft[i][0,0] %>"><%= nft[i][0,0] %></a></h4>
+                     <% } else{ %>  
+                        <h4>No Collection</h4>
+                     <% } %>
+                  
+
+                        
+               <tr>
+                  <th scope="col">Contract id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Current Price</th>
+               </tr>
+                </thead>
+                <tbody>
+                  <% nft[i][0,1].forEach(nftCollectionList => { %>
+                     <% if( nftCollectionList.getStatus() == "For Sale" ){ %>
+                   <tr>
+                      <td scope="row"> <span class="fa fa-cutlery mr-1"></span><a href="/view/contract/<%= nftCollectionList.getId() %>" %> `><%= nftCollectionList.getId() %></a></td>
+                      <td class="text-muted"><%= nftCollectionList.getName() %></td>
+                      <td class="text-muted"><%= nftCollectionList.getStatus() %></td>
+                      <td class="text-muted"><%= nftCollectionList.getCurrentPrice() %></td>
+                   </tr>
+                   <% }else{ %>
+                     <tr>
+                        <td scope="row"> <span class="fa fa-cutlery mr-1"></span><a href="/view/contract/<%= nftCollectionList.getId() %>" %> `><%= nftCollectionList.getId() %></a></td>
+                        <td class="text-muted"><%= nftCollectionList.getName() %></td>
+                        <td class="text-muted"><%= nftCollectionList.getStatus() %></td>
+                        <td class="text-muted"> </td>
+                     </tr>
+                     <% } %>
+                   <% }) %>
+                </tbody>
+             </table>
+          </div>
+       </div>
+       <% } %>
+      
+  <% } else{ %>  
+    <h1>error</h1>
+  <% } %>
+</div>
+  
+</body>
+</html>

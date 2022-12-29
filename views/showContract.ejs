@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+  <base href="/"> 
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+  <%- include("header"); -%>
+  <div class="container">
+   <div class="card-cont-image">
+    <div class="card mt-4" style="width: 25rem;">
+        <div class="card-body">
+            <div class="card-subtitle text-muted mb-2">
+            <img class="card-img-top" src="https://cloudflare-ipfs.com/ipfs/<%=contract.getImage()%>" alt="test" loading="lazy">
+            </div>
+        </div>
+      </div>
+   </div>
+   
+      <div class="card mt-2" >
+         <div class="card-cont-info">
+        <div class="card-body" >
+            <h6 class="card-title"><%= contract.getName() %></h6>
+            <div class="card-subtitle text-muted mb-2">
+                <ul style="list-style: none;">
+                    <li>Creator: <a href="/view/adress/<%= contract.getCreatorId() %>"><%= contract.creator %></a></li>
+                    <li>Current Owner: <a href="/view/adress/<%= contract.getOwnerId() %>"> <%= contract.getOwnerIdRS() %></a></li>
+                    <li>collection: <a href="/view/collection/<%= contract.getCollection() %>"><%= contract.getCollection() %></a></li>
+                    <li>Status: <%= contract.getStatus() %></li>
+                    <li>Price: <%= contract.getCurrentPrice() %></li>
+                    <li>Total times sold: <%= contract.getTotalTimesSold() %></li>
+                    <li>Total bids: <%= contract.getTotalBidsReceived() %></li>
+                    <li>Likes: <%= contract.getTotalLikes() %></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      </div>
+</div>
+  
+</body>
+</html>

@@ -1,0 +1,43 @@
+div.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    
+}
+#searchBtnDiv  {
+    position: absolute;
+    right: 20px;
+}
+#search{
+    width: auto;
+}
+tbody {
+    display: block;
+    height: 200px;
+    overflow: auto;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+thead {
+    width: calc( 100% - 1em )
+}
+table {
+    width: 400px;
+}
+div.card-body{
+    width:fit-content;
+    height: fit-content;
+}
+div.card-subtitle{
+    width: fit-content;
+}
+div.card-cont-image{
+    padding-right: 40px;
+}
+div.card-cont-info{
+    width: 41em;
+}
+
